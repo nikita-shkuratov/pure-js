@@ -1,7 +1,9 @@
 import { ExcelComponent } from "../../core/ExcelComponent";
 
 export class Formula extends ExcelComponent {
-    toHTML(){
-        return '<h1>Formula</h1>'
-    }
+  static className = "excel__formula";
+  toHTML() {
+    return `<div class="info">fx</div>
+    <div class="input" contenteditable></div>`;
+  }
 }
