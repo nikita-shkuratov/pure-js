@@ -3,7 +3,7 @@ const CODES = {
   Z: 90,
 };
 
-function createCell(_,col) {
+function createCell(_, col) {
   return `<div class="cell" contenteditable data-col='${col}'></div>`;
 }
 

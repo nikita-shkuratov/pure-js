@@ -72,8 +72,9 @@
     right: 0;
     background: #3c74ff;
     opacity: 0;
+    z-index:100;
     &:hover {
-      opacity: 1;
+      opacity: 1!important;
     }
   }
 
