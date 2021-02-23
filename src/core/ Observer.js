@@ -4,7 +4,7 @@ export class Observer {
   }
 
   emit(event, ...args) {
-    if (Array.isArray(this.listeners[event])) {
+    if (!Array.isArray(this.listeners[event])) {
       return false;
     }
     this.listeners[event].forEach((listener) => {
@@ -17,8 +17,7 @@ export class Observer {
     this.listeners[event] = this.listeners[event] || [];
     this.listeners[event].push(fn);
     return () => {
-      this.listeners[event] = this.listeners[event]
-      .filter((listener) => listener !== fn);
+      this.listeners[event] = this.listeners[event].filter((lis) => lis !== fn);
     };
   }
 }
