@@ -1,5 +1,5 @@
-import { defaultStyles, defaultTitle } from "../constants";
-import { cloneObject } from "../core/utils";
+import {defaultStyles, defaultTitle} from '../constants';
+import {cloneObject} from '../core/utils';
 
 const defaultlState = {
   title: defaultTitle,
@@ -7,7 +7,7 @@ const defaultlState = {
   colState: {},
   dataState: {},
   stylesState: {},
-  currentText: "",
+  currentText: '',
   currentStyles: defaultStyles,
   openedDate: new Date().toJSON(),
 };

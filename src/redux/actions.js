@@ -5,7 +5,7 @@ import {
   CHANGE_TITLE,
   TABLE_RESIZE,
   UPDATE_DATE,
-} from "./types";
+} from './types';
 
 export function tableResize(data) {
   return {

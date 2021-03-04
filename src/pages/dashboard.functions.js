@@ -1,8 +1,8 @@
-import { storage } from "../core/utils";
+import {storage} from '../core/utils';
 
 function toHTML(key) {
-  const model = storage(key)
-  const id = key.split(':')[1]
+  const model = storage(key);
+  const id = key.split(':')[1];
   return `
     <li class="db__record">
       <a href="#excel/${id}">${model.title}</a>
@@ -18,7 +18,7 @@ export function getAllKeys() {
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (!key?.includes("excel")) {
+    if (!key?.includes('excel')) {
       continue;
     }
     keys.push(key);
@@ -38,7 +38,7 @@ export function createRecordsTable() {
    <span>Opening date </span>
   </div>
   <ul class="db__list">
-   ${keys.map(key =>toHTML(key)).join("")}
+   ${keys.map((key) => toHTML(key)).join('')}
   </ul>
  `;
 }

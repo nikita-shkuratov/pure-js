@@ -1,6 +1,6 @@
 export function capitalize(string) {
-  if (typeof string !== "string") {
-    return "";
+  if (typeof string !== 'string') {
+    return '';
   }
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -9,24 +9,24 @@ export function range(start, end) {
   if (start > end) {
     [end, start] = [start, end];
   }
-  return new Array(end - start + 1).fill("").map((_, index) => start + index);
+  return new Array(end - start + 1).fill('').map((_, index) => start + index);
 }
 
-export function nextSelector(key, { col, row }) {
+export function nextSelector(key, {col, row}) {
   const MIN_VALUE = 0;
   switch (key) {
-    case "Enter":
-    case "ArrowDown":
+    case 'Enter':
+    case 'ArrowDown':
       row++;
       break;
-    case "Tab":
-    case "ArrowRight":
+    case 'Tab':
+    case 'ArrowRight':
       col++;
       break;
-    case "ArrowLeft":
+    case 'ArrowLeft':
       col = col - 1 < MIN_VALUE ? MIN_VALUE : col - 1;
       break;
-    case "ArrowUp":
+    case 'ArrowUp':
       row = row - 1 < MIN_VALUE ? MIN_VALUE : row - 1;
       break;
   }
@@ -41,7 +41,7 @@ export function storage(key, data = null) {
 }
 
 export function isEqual(a, b) {
-  if (typeof a === "object" && typeof b === "object") {
+  if (typeof a === 'object' && typeof b === 'object') {
     return JSON.stringify(a) === JSON.stringify(b);
   }
   return a === b;
@@ -53,21 +53,21 @@ export function camelToDashCase(str) {
 
 export function toInlineStyles(styles = {}) {
   return Object.keys(styles)
-    .map((key) => `${camelToDashCase(key)}: ${styles[key]}`)
-    .join(";");
+      .map((key) => `${camelToDashCase(key)}: ${styles[key]}`)
+      .join(';');
 }
 
-export function debounce(fn, wait){
-  let timeout
-  return function(...args){
-    const later =()=>{
-      clearTimeout(timeout)
-      fn.apply(this,args)
-    }
-    timeout = setTimeout(later, wait)
-  }
+export function debounce(fn, wait) {
+  let timeout;
+  return function(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      fn.apply(this, args);
+    };
+    timeout = setTimeout(later, wait);
+  };
 }
 
-export function cloneObject(obj){
-  return JSON.parse(JSON.stringify(obj))
+export function cloneObject(obj) {
+  return JSON.parse(JSON.stringify(obj));
 }
