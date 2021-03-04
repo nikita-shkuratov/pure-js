@@ -1,11 +1,11 @@
-import { range } from "../../core/utils";
+import {range} from '../../core/utils';
 
 export function shouldResize(event) {
   return event.target.dataset.resize;
 }
 
 export function isCell(event) {
-  return event.target.dataset.type === "cell";
+  return event.target.dataset.type === 'cell';
 }
 
 export function createMatrix($target, $current) {

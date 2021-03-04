@@ -52,7 +52,6 @@ export function rootReducer(state, action) {
       };
 
     case UPDATE_DATE:
-      console.log('reducer work');
       return {
         ...state,
         openedDate: new Date().toJSON(),

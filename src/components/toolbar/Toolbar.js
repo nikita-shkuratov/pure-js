@@ -1,16 +1,16 @@
-import { ExcelStateComponent } from "../../core/ExcelStateComponent";
-import { createToolbar } from "./toolbar.template";
-import { $ } from "../../core/dom";
-import { defaultStyles } from "../../constants";
+import {ExcelStateComponent} from '../../core/ExcelStateComponent';
+import {createToolbar} from './toolbar.template';
+import {$} from '../../core/dom';
+import {defaultStyles} from '../../constants';
 
 export class Toolbar extends ExcelStateComponent {
-  static className = "excel__toolbar";
+  static className = 'excel__toolbar';
 
   constructor($root, options) {
     super($root, {
-      name: "Toolbar",
-      listeners: ["click"],
-      subscribe: ["currentStyles"],
+      name: 'Toolbar',
+      listeners: ['click'],
+      subscribe: ['currentStyles'],
       ...options,
     });
   }
@@ -33,9 +33,9 @@ export class Toolbar extends ExcelStateComponent {
 
   onClick(event) {
     const $target = $(event.target);
-    if ($target.data.type === "button") {
+    if ($target.data.type === 'button') {
       const value = JSON.parse($target.data.value);
-      this.$emit("toolbar:appStyle", value);
+      this.$emit('toolbar:appStyle', value);
     }
   }
 }
