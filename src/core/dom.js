@@ -1,13 +1,13 @@
 class Dom {
   constructor(selector) {
     this.$el =
-      typeof selector === "string"
-        ? document.querySelector(selector)
-        : selector;
+      typeof selector === 'string' ?
+        document.querySelector(selector) :
+        selector;
   }
 
   html(html) {
-    if (typeof html === "string") {
+    if (typeof html === 'string') {
       this.$el.innerHTML = html;
       return this;
     }
@@ -15,18 +15,18 @@ class Dom {
   }
 
   text(text) {
-    if (typeof text !== "undefined") {
+    if (typeof text !== 'undefined') {
       this.$el.textContent = text;
       return this;
     }
-    if (this.$el.tagName.toLowerCase() === "input") {
+    if (this.$el.tagName.toLowerCase() === 'input') {
       return this.$el.value.trim();
     }
     return this.$el.textContent.trim();
   }
 
   clear() {
-    this.html("");
+    this.html('');
     return this;
   }
 
@@ -85,7 +85,7 @@ class Dom {
 
   id(parse) {
     if (parse) {
-      const parsed = this.id().split(":");
+      const parsed = this.id().split(':');
       return {
         row: +parsed[0],
         col: +parsed[1],
@@ -119,7 +119,7 @@ export function $(selector) {
   return new Dom(selector);
 }
 
-$.create = (tagName, classes = "") => {
+$.create = (tagName, classes = '') => {
   const el = document.createElement(tagName);
   if (classes) {
     el.classList.add(classes);

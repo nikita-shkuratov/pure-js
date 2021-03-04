@@ -1,16 +1,16 @@
-import { Excel } from "../components/excel/Excel";
-import { Formula } from "../components/formula/Formula";
-import { Header } from "../components/header/Header";
-import { Table } from "../components/table/Table";
-import { Toolbar } from "../components/toolbar/Toolbar";
-import { createStore } from "../core/createStor";
-import { debounce, storage } from "../core/utils";
-import { normalizeInitialState } from "../redux/initialState";
-import { rootReducer } from "../redux/rootReducer";
-import { Page } from "../core/Page";
+import {Excel} from '../components/excel/Excel';
+import {Formula} from '../components/formula/Formula';
+import {Header} from '../components/header/Header';
+import {Table} from '../components/table/Table';
+import {Toolbar} from '../components/toolbar/Toolbar';
+import {createStore} from '../core/store/createStor';
+import {debounce, storage} from '../core/utils';
+import {normalizeInitialState} from '../redux/initialState';
+import {rootReducer} from '../redux/rootReducer';
+import {Page} from '../core/Page';
 
 function storageName(param) {
-  return "excel:" + param;
+  return 'excel:' + param;
 }
 
 export class ExcelPage extends Page {
@@ -20,8 +20,8 @@ export class ExcelPage extends Page {
     const store = createStore(rootReducer, normalizeInitialState(state));
 
     const stateListener = debounce(
-      (state) => storage(storageName(params), state),
-      300
+        (state) => storage(storageName(params), state),
+        300
     );
 
     store.subscribe(stateListener);

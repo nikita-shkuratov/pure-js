@@ -1,10 +1,10 @@
-import { $ } from "../dom";
-import { ActiveRoute } from "./ActiveRoute";
+import {$} from '../dom';
+import {ActiveRoute} from './ActiveRoute';
 
 export class Router {
   constructor(selector, routes) {
     if (!selector) {
-      throw new Error("Selector is not provided in Router");
+      throw new Error('Selector is not provided in Router');
     }
     this.$placeholder = $(selector);
     this.routes = routes;
@@ -14,7 +14,7 @@ export class Router {
   }
 
   init() {
-    window.addEventListener("hashchange", this.changePageHandler);
+    window.addEventListener('hashchange', this.changePageHandler);
     this.changePageHandler();
   }
 
@@ -25,9 +25,9 @@ export class Router {
 
     this.$placeholder.clear();
 
-    const Page = ActiveRoute.path.includes("excel")
-      ? this.routes.excel
-      : this.routes.dashboard;
+    const Page = ActiveRoute.path.includes('excel') ?
+      this.routes.excel :
+      this.routes.dashboard;
 
     this.page = new Page(ActiveRoute.param);
 
@@ -37,6 +37,6 @@ export class Router {
   }
 
   destroy() {
-    window.removeEventListener("hashchange", this.changePageHandler);
+    window.removeEventListener('hashchange', this.changePageHandler);
   }
 }
